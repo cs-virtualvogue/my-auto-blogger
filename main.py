@@ -31,7 +31,7 @@ def generate_article():
     api_key = os.environ.get('GEMINI_API_KEY')
     genai.configure(api_key=api_key)
     
-    genai.GenerativeModel("models/gemini-1.5-flash")
+    model = genai.GenerativeModel("models/gemini-1.5-flash")
     
     prompt = """
     คุณคือบล็อกเกอร์มืออาชีพระดับอินเตอร์ สไตล์หรูหรา มั่นใจ และเจาะลึกรายละเอียด (Detail-oriented)
