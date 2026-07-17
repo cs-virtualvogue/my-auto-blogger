@@ -44,9 +44,9 @@ def generate_article():
     5. มีหัวข้อเรื่องที่น่าดึงดูด (Title) อยู่ในบรรทัดแรกสุดของผลลัพธ์ โดยเขียนในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
     """
     
-    # สั่งเจนนิ่งบทความโดยใช้โมเดล gemini-1.5-flash ที่เปิดให้ทุกคนใช้งานได้เสถียรที่สุด
+    # เปลี่ยนมาใช้ gemini-3.5-flash เพื่อแก้ปัญหาโมเดลรุ่นเก่า 1.5 โดนปิดตัวไปแล้ว
     response = client.models.generate_content(
-        model='gemini-1.5-flash',
+        model='gemini-3.5-flash',
         contents=prompt,
     )
     
