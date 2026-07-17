@@ -1,6 +1,6 @@
 import os
 import json
-import google.generativeai as genai
+from google import genai
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -27,11 +27,11 @@ def get_blogger_service():
     return build('blogger', 'v3', credentials=creds)
 
 def generate_article():
-    """ใช้ Gemini เขียนบทความแฟชั่น/เทคโนโลยีระดับรันเวย์"""
+    """ใช้ Gemini (SDK ใหม่) เขียนบทความแฟชั่น/เทคโนโลยีระดับรันเวย์"""
     api_key = os.environ.get('GEMINI_API_KEY')
-    genai.configure(api_key=api_key)
     
-    model = genai.GenerativeModel("models/gemini-1.5-flash")
+    # เรียกใช้ Client ของ google-genai ตัวใหม่ล่าสุด
+    client = genai.Client(api_key=api_key)
     
     prompt = """
     คุณคือบล็อกเกอร์มืออาชีพระดับอินเตอร์ สไตล์หรูหรา มั่นใจ และเจาะลึกรายละเอียด (Detail-oriented)
@@ -45,7 +45,12 @@ def generate_article():
     5. มีหัวข้อเรื่องที่น่าดึงดูด (Title) อยู่ในบรรทัดแรกสุดของผลลัพธ์ โดยเขียนในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
     """
     
-    response = model.generate_content(prompt)
+    # เรียกใช้โมเดล gemini-2.5-flash ที่ทั้งเร็วและฉลาดที่สุดในตอนนี้
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+    )
+    
     raw_text = response.text
     
     try:
