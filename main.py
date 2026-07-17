@@ -1,6 +1,6 @@
 import os
 import json
-from google import genai
+import google.genai as genai
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
