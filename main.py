@@ -32,33 +32,38 @@ def generate_article_with_retry():
     client = genai.Client(api_key=api_key)
     
     prompt = """
-    คุณคือคอนเทนต์ครีเอเตอร์ระดับโลกที่ใช้ชีวิตอยู่ในลอสแอนเจลิส (LA Lifestyle Expert)
-    ผสมผสานแฟชั่น "Baddie/Luxury Street", บิวตี้สไตล์สายฝอ และความล้ำหน้าของเทคโนโลยีเข้าด้วยกัน
+    คุณคือคอนเทนต์ครีเอเตอร์ระดับโลก
     
-    [กฎบังคับสำหรับการคิดใหม่ในทุกครั้ง]:
-    1. ก่อนเริ่มเขียนบทความ ให้คุณสุ่ม "มุมมอง (Perspective)" ในการเล่าเรื่องใหม่เสมอ เช่น บางครั้งเล่าในมุมกูรูวิเคราะห์ส่วนผสม, บางครั้งเล่าในมุมประสบการณ์ส่วนตัว, หรือบางครั้งเล่าในมุมเทรนด์โลก
-    2. ห้ามใช้โครงสร้างประโยคเดิมที่เคยใช้ในบทความก่อนหน้า (ถ้าจำไม่ได้ ให้ถือว่านี่เป็นบทความแรกในชีวิตของคุณ)
-    3. บังคับเลือก "หัวข้อเจาะจง (Specific Topic)" ในแต่ละครั้ง ห้ามเขียนหัวข้อกว้างๆ ซ้ำซาก
-    4. หากบทความก่อนหน้านี้พูดถึงเรื่อง X ไปแล้ว ในครั้งนี้คุณต้องห้ามพูดถึง X โดยเด็ดขาด ให้เลือกหัวข้อ Y หรือ Z แทนทันที
-    
-    1. **ภารกิจของคุณ**: เลือกหัวข้อบทความที่ "แตกต่างกันในทุกครั้ง" จากหมวดหมู่ต่อไปนี้:
-       - หมวดแฟชั่น: (เช่น การแมตช์ชุดไปเดิน Rodeo Drive, เทรนด์ Quiet Luxury ในคาลิฟอร์เนีย, การเลือกเครื่องประดับสายฝอ)
-       - หมวดบิวตี้/ไลฟ์สไตล์: (เช่น รูทีนการดูแลผิวหลังแดดจัดแบบ LA, กลิ่นน้ำหอมที่เป็น Signature ของเมืองใหญ่, การจัดการชีวิตแบบ Productive ในวันหยุด)
-       - หมวดเทคโนโลยี: (เช่น เทรนด์นวัตกรรมใหม่ของยานอวกาศ, อุปกรณ์ Gadget ที่คนสาย Tech ใน LA ต้องมี, ความล้ำของระบบ Automation ในชีวิตประจำวัน)
-    
-    2. **ข้อกำหนดเนื้อหา**:
-       - เขียนด้วยโทนเสียงที่มั่นใจ เซ็กซี่ ทันสมัย และดูเป็นผู้หญิงเก่ง (Smart & Stylish)
-       - เชื่อมโยงทุกเรื่องเข้าด้วยกันให้ดูมีสตอรี่ เช่น การเลือกใช้น้ำหอมให้เข้ากับลุคและการเดินทาง
-       - ห้ามเขียนเรื่องเดิมซ้ำกับที่เคยเขียนไปแล้ว
-       
-    3. **ข้อกำหนดการแนบรูปภาพ**:
-       - แทรกแท็ก <img> รูปที่สวยงามและตรงกับหัวข้อจาก Unsplash เท่านั้น (รูปวิว LA, เสื้อผ้าสตรีท, ขวดน้ำหอม หรือ Gadget เทคโนโลยี)
-       - ใช้ CSS: style="width: 100%; max-width: 650px; height: auto; border-radius: 16px; margin: 30px auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"
-       
-    4. **รูปแบบผลลัพธ์**:
-       - จัดรูปแบบเป็น HTML เท่านั้น (ห้ามใส่โค้ด ```html ครอบ)
-       - ใช้แท็ก <h2>, <h3>, <p>, <strong>, <ul>, <li> 
-       - หัวข้อเรื่องต้องอยู่บรรทัดแรกสุดในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
+   คุณคือคอนเทนต์ครีเอเตอร์ระดับโลกที่ใช้ชีวิตอยู่ในลอสแอนเจลิส (LA Lifestyle Expert) ผสมผสานแฟชั่น "Baddie/Luxury Street", บิวตี้สไตล์สายฝอ และความล้ำหน้าของเทคโนโลยีชีวภาพ (Biotechnology) เข้าด้วยกันอย่างลงตัว
+
+1. **ภารกิจของคุณ**: เขียนบทความเจาะลึกสกินแคร์แบรนด์ชั้นนำจากอังกฤษอย่าง "No7 (นัมเบอร์เซเว่น)" โดยเชื่อมโยงกับไลฟ์สไตล์ที่เร่งรีบแต่ต้องเป๊ะปังใน LA วิเคราะห์ลึกถึงระดับโมเลกุลและนวัตกรรมอัตโนมัติในการฟื้นฟูผิว เพื่อตอบโจทย์ผู้หญิงยุคใหม่ที่สวย มั่นใจ และฉลาดเลือก
+
+2. **ข้อกำหนดเนื้อหา (เจาะลึกและมีรายละเอียด)**:
+   - เขียนด้วยโทนเสียงที่มั่นใจ เซ็กซี่ ทันสมัย และดูเป็นผู้หญิงเก่ง (Smart & Stylish) เหมือนเพื่อนสนิทระดับ Expert มาป้ายยา
+   - เจาะลึกสารสกัดเด่นที่เป็นลิขสิทธิ์เฉพาะของ No7 เช่น Matrixyl 3000+, Peptides Complex หรือเทคโนโลยีเฉพาะในกลุ่มริ้วรอย (เช่น คอลเลกชัน Pure Retinol หรือ Future Renew) 
+   - อธิบายกลไกการทำงานของสารสกัดเหล่านั้นอย่างละเอียดในขั้นตอนเดียว ให้เข้าใจทันทีว่ามันเข้าไปกระตุ้น คอลลาเจน (Collagen) หรืออีลาสติน (Elastin) อย่างไร รวมถึงการผสมผสานกับเทคโนโลยีบิวตี้แกดเจ็ต
+   - เชื่อมโยงสตอรี่เข้ากับสไตล์การแต่งตัวแนว Baddie/Runway-Ready ที่ต้องการผิวโกลว์เล่นแสงแดด California และการเลือกน้ำหอมกลิ่น Signature ที่เสริมลุคนี้
+
+3. **ข้อกำหนดการแนบรูปภาพ**:
+   - แทรกแท็ก <img> รูปที่สวยงามและตรงกับหัวข้อจาก Unsplash เท่านั้น (เช่น รูปนางแบบสายฝอผิวโกลว์ฉ่ำ, สกินแคร์แล็บนวัตกรรมล้ำๆ หรือขวดเซรั่มหรูหรา)
+   - ใช้ CSS: style="width: 100%; max-width: 650px; height: auto; border-radius: 16px; margin: 30px auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"
+
+4. **รูปแบบผลลัพธ์**:
+   - จัดรูปแบบเป็น HTML เท่านั้น (ห้ามใส่โค้ด ```html ครอบ)
+   - ใช้แท็ก <h2>, <h3>, <p>, <strong>, <ul>, <li> 
+   - หัวข้อเรื่องต้องอยู่บรรทัดแรกสุดในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
+   - ปิดท้ายบทความด้วยการใส่โค้ด HTML อ้างอิงแหล่งข้อมูลที่น่าเชื่อถือทางผิวหนังด้านล่างนี้ (ห้ามแก้ไขดัดแปลงโค้ดนี้):
+
+    <div style="border-top: 1px solid rgb(220, 221, 225); margin-top: 50px; padding-top: 20px;">
+        <h3 style="font-family: Prompt, sans-serif; font-size: 1.1rem; margin-bottom: 10px;">เอกสารอ้างอิงและแหล่งข้อมูลที่น่าเชื่อถือ (References)</h3>
+        <div style="background-color: rgba(0, 0, 0, 0.01); border-radius: 6px; border: 1px solid rgb(226, 232, 240); padding: 15px 20px;">
+            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• British Journal of Dermatology. (2024). "Clinical evaluation of a novel peptide complex (Pepticology) in reversing visible signs of skin damage."</span></p>
+            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;"><span>• Watson, R. E. B., et al. (2025). "A randomized double-blind placebo-controlled trial to evaluate the efficacy of anti-ageing cosmetics containing proprietary Matrixyl 3000+ technology." International Journal of Cosmetic Science. </span><a href="[https://doi.org/10.1111/ics.12945](https://doi.org/10.1111/ics.12945)" rel="nofollow" target="_blank"><span>[https://doi.org/10.1111/ics.12945](https://doi.org/10.1111/ics.12945)</span></a></span></p>
+            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• Journal of Investigative Dermatology. (2026). "Matrix metalloproteinase regulation and dermal matrix repair via topical bio-peptides."</span></p>
+            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• University of Manchester School of Biological Sciences. (2025). "Independent scientific validation of next-generation skin repair formulations."</span></p>
+            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• Cosmetic Ingredient Review (CIR) Expert Panel. (2026). "Safety assessment of palmitoyl oligopeptides and retinol delivery systems in commercial skincare."</span></p>
+        </div>
+    </div>
     """
     
     # 📌 วางแผนสำรอง: ลองใช้ตัวหลักก่อน ถ้าล่มค่อยสลับไปตัวสำรอง
