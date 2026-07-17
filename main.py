@@ -1,4 +1,5 @@
 import os
+import time
 from google import genai
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -25,8 +26,8 @@ def get_blogger_service():
         
     return build('blogger', 'v3', credentials=creds)
 
-def generate_article():
-    """ใช้ Gemini เขียนบทความแฟชั่นพร้อมแนบรูปภาพพรีเมียมจาก Unsplash อัตโนมัติ"""
+def generate_article_with_retry():
+    """ใช้ Gemini เจนบทความ พร้อมระบบกันตาย (Retry และสลับโมเดลสำรองอัตโนมัติ)"""
     api_key = os.environ.get('GEMINI_API_KEY')
     client = genai.Client(api_key=api_key)
     
@@ -52,28 +53,51 @@ def generate_article():
     8. มีหัวข้อเรื่องที่น่าดึงดูด (Title) อยู่ในบรรทัดแรกสุดของผลลัพธ์ โดยเขียนในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
     """
     
-    response = client.models.generate_content(
-        model='gemini-3.5-flash',
-        contents=prompt,
-    )
+    # 📌 วางแผนสำรอง: ลองใช้ตัวหลักก่อน ถ้าล่มค่อยสลับไปตัวสำรอง
+    models_to_try = ['gemini-3.5-flash', 'gemini-3-flash-preview']
     
-    raw_text = response.text
-    
-    try:
-        title = raw_text.split("[TITLE]")[1].split("[/TITLE]")[0].strip()
-        body_content = raw_text.split("[/TITLE]")[1].strip()
-    except Exception:
-        title = "Sunset Boulevard After Dark: ครีเอตลุค Luxury Street & Scent"
-        body_content = raw_text
-        
-    return title, body_content
+    for model_name in models_to_try:
+        for attempt in range(3):  # ลองซ้ำโมเดลละ 3 ครั้ง ถ้าเจอ Error 503
+            try:
+                print(f"🔄 กำลังเรียกใช้งานโมเดล: {model_name} (พยายามครั้งที่ {attempt + 1})...")
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                )
+                
+                raw_text = response.text
+                
+                # แยกส่วน Title และ Body ออกจากกัน
+                try:
+                    title = raw_text.split("[TITLE]")[1].split("[/TITLE]")[0].strip()
+                    body_content = raw_text.split("[/TITLE]")[1].strip()
+                except Exception:
+                    title = "Sunset Boulevard After Dark: ครีเอตลุค Luxury Street & Scent"
+                    body_content = raw_text
+                    
+                return title, body_content
+                
+            except Exception as e:
+                error_msg = str(e)
+                print(f"⚠️ เกิดปัญหากับโมเดล {model_name}: {error_msg}")
+                
+                # ถ้าเจออาการ 503 หรือทรัพยากรหนาแน่น ให้รอแป๊บนึงแล้วลองใหม่
+                if "503" in error_msg or "UNAVAILABLE" in error_msg or "high demand" in error_msg:
+                    print("⏳ เซิร์ฟเวอร์ Google น่าจะหนาแน่นชั่วคราว... รอ 5 วินาทีแล้วลองใหม่อีกครั้งนะคะนัตตี้")
+                    time.sleep(5)
+                else:
+                    # ถ้าเจอ error ชนิดอื่นนอกเหนือจากเซิร์ฟเวอร์ล่ม ให้เปลี่ยนโมเดลทันที
+                    break
+                    
+    # ถ้าพยายามทุกวิถีทางแล้วล่มจริงๆ ถึงจะโยน Error ออกไป
+    raise Exception("❌ พยายามเชื่อมต่อทั้งโมเดลหลักและโมเดลสำรองแล้ว แต่เซิร์ฟเวอร์ Google ยังไม่พร้อมให้บริการในขณะนี้ค่ะ")
 
 def main():
     try:
-        print("🤖 เริ่มต้นทำงานระบบ AI Auto-Blogger (Official SDK + Auto Images)...")
-        title, content = generate_article()
+        print("🤖 เริ่มต้นทำงานระบบ AI Auto-Blogger (Official SDK + Auto Images + Smart Retry)...")
+        title, content = generate_article_with_retry()
         
-        print(f"✍️ เจนบทความและแทรกรูปภาพสำเร็จ: {title}")
+        print(f"✍️ เจนบทความสำเร็จ: {title}")
         blogger = get_blogger_service()
         
         body = {
@@ -88,7 +112,7 @@ def main():
         print(f"🎉 โพสต์ลงบล็อกเรียบร้อยแล้ว! URL: {response.get('url')}")
         
     except Exception as e:
-        print(f"❌ เกิดข้อผิดพลาด: {str(e)}")
+        print(f"❌ ระบบขัดข้องขั้นสุด: {str(e)}")
 
 if __name__ == "__main__":
     main()
