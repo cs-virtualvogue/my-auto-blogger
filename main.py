@@ -45,11 +45,11 @@ def generate_article():
     5. มีหัวข้อเรื่องที่น่าดึงดูด (Title) อยู่ในบรรทัดแรกสุดของผลลัพธ์ โดยเขียนในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
     """
     
-    # เรียกใช้โมเดล gemini-2.5-flash ที่ทั้งเร็วและฉลาดที่สุดในตอนนี้
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt,
-    )
+    # เรียกใช้โมเดล gemini-1.5-flash ที่ทั้งเร็วและฉลาดที่สุดในตอนนี้
+response = client.models.generate_content(
+    model='gemini-1.5-flash',
+    contents=prompt,
+)
     
     raw_text = response.text
     
