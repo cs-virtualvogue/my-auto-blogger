@@ -34,35 +34,39 @@ def generate_article_with_retry():
     prompt = """
     คุณคือคอนเทนต์ครีเอเตอร์ระดับโลก
 
-    1. **ภารกิจของคุณ**: เขียนบทความเจาะลึกสกินแคร์แบรนด์ชั้นนำจากอังกฤษอย่าง "No7 (นัมเบอร์เซเว่น)" โดยเขียนให้เป็นบทความเชิงให้ความรู้ และ เชิงแนะนำให้รู้จักกับตัวสินค้า และ สารสกัด 
+    1. **ภารกิจของคุณ**: เขียนบทความเจาะลึกน้ำหอม Niche บทความเกี่ยวกับ Baccarat Rouge 540 (BR 540) และ Escentric Molecules Molecule 01 ชื่อบทความ Decoding The Invisible Scent: เจาะลึกเคมีลับเบื้องหลัง Baccarat Rouge 540 และ Molecule 01 น้ำหอมที่คนฉีดไม่ได้กลิ่น แต่คนรอบข้างเหลียวหลัง
 
     2. **ข้อกำหนดเนื้อหา (เจาะลึกและมีรายละเอียด)**:
-   - เขียนด้วยโทนเสียงปกติ แบบบทความให้ความรู้เชิงวิชาการ แต่ไม่ต้องใช้ภาษาที่เป็นทางการมาก
-   - เจาะลึกสารสกัดเด่นที่เป็นลิขสิทธิ์เฉพาะของ No7 เช่น Matrixyl 3000+, Peptides Complex หรือเทคโนโลยีเฉพาะในกลุ่มริ้วรอย (เช่น คอลเลกชัน Pure Retinol หรือ Future Renew) 
-   - อธิบายกลไกการทำงานของสารสกัดเหล่านั้นอย่างละเอียดในขั้นตอนเดียว ให้เข้าใจทันทีว่ามันเข้าไปกระตุ้น คอลลาเจน (Collagen) หรืออีลาสติน (Elastin) อย่างไร
-   - เชื่อมโยงและอ้างอิงผลการทดสอบตามงานวิจัยจริงของแบรนด์ "No7 (นัมเบอร์เซเว่น)"
-   - และเปรียบเทียบผลิตภัณฑ์ (Product) ที่เหมือนกันในตลาดพร้อมบอกจุดเด่นที่ต่างจาก ผลิตภัณฑ์ ในท้องตลาดอย่างไร
+     **2.1 เขียนด้วยโทนเสียงปกติ แบบบทความให้ความรู้เชิงวิชาการ แต่ไม่ต้องใช้ภาษาที่เป็นทางการมาก**:
+     **2.2 เจาะลึกสารสกัดและเคมีเด่นของน้ำหอมทั้ง 2 ตัว เช่น Iso E Super ใน Molecule 01 และ Hedione,Ambroxan,Ethyl Maltol ตามโครงสร้างบทความด้านล่างนี้**:
 
-    3. **ข้อกำหนดการแนบรูปภาพ**:
-   - แทรกแท็ก <img> รูปที่สวยงามและตรงกับหัวข้อจาก Unsplash เท่านั้น (เช่น รูปนางแบบสายฝอผิวโกลว์ฉ่ำ, สกินแคร์แล็บนวัตกรรมล้ำๆ หรือขวดเซรั่มหรูหรา)
-   - ใช้ CSS: style="width: 100%; max-width: 650px; height: auto; border-radius: 16px; margin: 30px auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"
+     - Introduction: เปิดด้วยประเด็น "น้ำหอมที่คนฉีดไม่ได้กลิ่น แต่คนรอบข้างเดินตาม" ดึงดูดความสนใจ
+     - Section 1: Molecule 01 – มินิมอลด้วยวิทยาศาสตร์หลอกสมอง เจาะลึกเรื่อง Iso E Super ความหนักของโมเลกุล และการทำงานกับอุณหภูมิผิว
+     - Section 2: BR 540 – สูตรเคมีพันล้านและปฏิกิริยากระตุ้นสมอง อธิบายเรื่อง Hedione กับสมองส่วนไฮโปทาลามัส และการผสานตัวของสารสังเคราะห์จนกลายเป็นเอกลักษณ์
+     - Section 3: Tips สำหรับคนชอบปรุงน้ำหอม (Insight) แนะนำการ Layering เพราะ Molecule 01 (Iso E Super) เป็นกลิ่นเบสที่ดีมาก ถ้านำมาฉีดคู่กับ BR 540 จะยิ่งดันให้มิติของน้ำตาลไหม้และไม้หอมฟุ้งกระจายแบบทวีคูณและติดทนขึ้นไปอีก!
 
-    4. **รูปแบบผลลัพธ์**:
+     ***อ้างอิงหลักฐานทางวิทยาศาสตร์เรื่องกลิ่นสลับกันหาย โครงสร้างเคมีและงานวิจัยเบื้องหลังด้วยไว้ที่ HTML อ้างอิงแหล่งข้อมูลที่น่าเชื่อถือ***
+
+   3. **ข้อกำหนดการแนบรูปภาพ**:
+    - แทรกแท็ก <img> รูปที่สวยงามและตรงกับหัวข้อจาก Unsplash เท่านั้น 
+    - ใช้ CSS: style="width: 100%; max-width: 650px; height: auto; border-radius: 16px; margin: 30px auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"
+
+   4. **รูปแบบผลลัพธ์**:
    - จัดรูปแบบเป็น HTML เท่านั้น (ห้ามใส่โค้ด ```html ครอบ)
    - ใช้แท็ก <h2>, <h3>, <p>, <strong>, <ul>, <li> 
    - หัวข้อเรื่องต้องอยู่บรรทัดแรกสุดในรูปแบบ: [TITLE] หัวข้อบทความ [/TITLE]
-   - ปิดท้ายบทความด้วยการใส่โค้ด HTML อ้างอิงแหล่งข้อมูลที่น่าเชื่อถือทางผิวหนังด้านล่างนี้ (ห้ามแก้ไขดัดแปลงโค้ดนี้):
+   - ปิดท้ายบทความด้วยการใส่โค้ด HTML อ้างอิงแหล่งข้อมูลที่น่าเชื่อถือด้านล่างนี้ (ห้ามแก้ไขดัดแปลงโค้ดนี้ ยกเว้นถ้ามีลิงค์สามารถใส่และแนบลิงค์เข้ามาด้วยได้):
 
-    <div style="border-top: 1px solid rgb(220, 221, 225); margin-top: 50px; padding-top: 20px;">
-        <h3 style="font-family: Prompt, sans-serif; font-size: 1.1rem; margin-bottom: 10px;">เอกสารอ้างอิงและแหล่งข้อมูลที่น่าเชื่อถือ (References)</h3>
-        <div style="background-color: rgba(0, 0, 0, 0.01); border-radius: 6px; border: 1px solid rgb(226, 232, 240); padding: 15px 20px;">
-            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• British Journal of Dermatology. (2024). "Clinical evaluation of a novel peptide complex (Pepticology) in reversing visible signs of skin damage."</span></p>
-            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;"><span>• Watson, R. E. B., et al. (2025). "A randomized double-blind placebo-controlled trial to evaluate the efficacy of anti-ageing cosmetics containing proprietary Matrixyl 3000+ technology." International Journal of Cosmetic Science. </span><a href="[https://doi.org/10.1111/ics.12945](https://doi.org/10.1111/ics.12945)" rel="nofollow" target="_blank"><span>[https://doi.org/10.1111/ics.12945](https://doi.org/10.1111/ics.12945)</span></a></span></p>
-            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• Journal of Investigative Dermatology. (2026). "Matrix metalloproteinase regulation and dermal matrix repair via topical bio-peptides."</span></p>
-            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• University of Manchester School of Biological Sciences. (2025). "Independent scientific validation of next-generation skin repair formulations."</span></p>
-            <p style="font-size: 9.5pt; margin-bottom: 8px;"><span style="color: #444444; font-family: Prompt, sans-serif;">• Cosmetic Ingredient Review (CIR) Expert Panel. (2026). "Safety assessment of palmitoyl oligopeptides and retinol delivery systems in commercial skincare."</span></p>
-        </div>
+<div style="border-top: 1px solid rgb(220, 221, 225); margin-top: 50px; padding-top: 20px;">
+    <h3 style="font-family: Prompt, sans-serif; font-size: 1.1rem; margin-bottom: 10px;">เอกสารอ้างอิงและแหล่งข้อมูลที่น่าเชื่อถือ (References)</h3>
+    <div style="background-color: rgba(0, 0, 0, 0.01); border-radius: 6px; border: 1px solid rgb(226, 232, 240); padding: 15px 20px;">
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><span face="Prompt, sans-serif" style="color: #444444;">• British Journal of Dermatology. (2024). "Clinical evaluation of a novel peptide complex (Pepticology) in reversing visible signs of skin damage."</span></p>
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><span face="Prompt, sans-serif" style="color: #444444;"><span>• Watson, R. E. B., et al. (2025). "A randomized double-blind placebo-controlled trial to evaluate the efficacy of anti-ageing cosmetics containing proprietary Matrixyl 3000+ technology." International Journal of Cosmetic Science. </span></span></p>
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><span face="Prompt, sans-serif" style="color: #444444;">• Journal of Investigative Dermatology. (2026). "Matrix metalloproteinase regulation and dermal matrix repair via topical bio-peptides."</span></p>
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><span face="Prompt, sans-serif" style="color: #444444;">• University of Manchester School of Biological Sciences. (2025). "Independent scientific validation of next-generation skin repair formulations."</span></p>
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><span face="Prompt, sans-serif" style="color: #444444;">• Cosmetic Ingredient Review (CIR) Expert Panel. (2026). "Safety assessment of palmitoyl oligopeptides and retinol delivery systems in commercial skincare."</span></p>
     </div>
+</div>
     """
     
     # 📌 วางแผนสำรอง: ลองใช้ตัวหลักก่อน ถ้าล่มค่อยสลับไปตัวสำรอง
